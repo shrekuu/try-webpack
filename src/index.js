@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import Icon from './icon.jpg';
+import Data from './data.xml';
 
 function component() {
   var element = document.createElement('div');
@@ -18,6 +19,8 @@ function component() {
   elHeart.classList.add('fa-heart');
   elHeart.classList.add('fa');
   element.appendChild(elHeart);
+
+  console.log(Data);
 
   return element;
 }
