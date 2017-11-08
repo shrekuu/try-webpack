@@ -18,6 +18,11 @@ module.exports = {
   // devtool: 'inline-source-map',
 
 
+  // webpack dev server live reloading
+  devServer: {
+    contentBase: './dist'
+  },
+
   plugins: [
 
     // 清空 dist 目录
