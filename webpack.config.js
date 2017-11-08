@@ -13,6 +13,11 @@ module.exports = {
       'lodash'
     ]
   },
+
+  // source map, 需要时再开启
+  // devtool: 'inline-source-map',
+
+
   plugins: [
 
     // 清空 dist 目录
@@ -20,7 +25,7 @@ module.exports = {
 
     // 编译 html
     new HtmlWebpackPlugin({
-      title: 'Output Management'
+      // title: 'Output Management'
     }),
 
 
@@ -37,7 +42,13 @@ module.exports = {
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'runtime'
-    })
+    }),
+
+    // 配置哪些文件不需要 source map
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[name].js.map',
+      exclude: [/^vendor\..+\.js$/]
+    }),
   ],
 
   output: {
