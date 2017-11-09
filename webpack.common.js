@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
+    polyfills: './src/polyfills.js',
     app: './src/index.js',
 
     // 第三方依赖列表
@@ -20,14 +21,18 @@ module.exports = {
     // 编译 html
     new HtmlWebpackPlugin(),
 
+    new webpack.ProvidePlugin({
+      lodash: 'lodash',
+    }),
+
     // 尽量缓存变化不大的第三方依赖
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
+      name: 'vendor',
     }),
 
     // 提取 webpack boilerplate
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'runtime'
+      name: 'runtime',
     }),
   ],
 

@@ -13,7 +13,7 @@ module.exports = merge(common, {
 
     // 混淆压缩
     new UglifyJSPlugin({
-      sourceMap: true
+      sourceMap: true,
     }),
 
     // manifest
@@ -22,10 +22,10 @@ module.exports = merge(common, {
     // 根据模块的相对路径生成一个四位数的hash作为模块id
     new webpack.HashedModuleIdsPlugin(),
 
-    // 配置哪些文件不需要 source map
+    // 主要配置哪些文件不需要 source map
     new webpack.SourceMapDevToolPlugin({
       filename: '[name].[chunkhash].js.map',
-      exclude: [/^vendor\..+\.js$/]
+      exclude: [/(^vendor|^polyfills|^runtime)\..+\.js$/],
     }),
   ],
 
