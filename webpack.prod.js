@@ -6,13 +6,15 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
 
-  // source map
-  devtool: 'source-map',
+  // source map, 在插件里有配置, 这里不必写
+  // devtool: 'source-map',
 
   plugins: [
 
     // 混淆压缩
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin({
+      sourceMap: true
+    }),
 
     // manifest
     new ManifestPlugin(),
@@ -22,7 +24,7 @@ module.exports = merge(common, {
 
     // 配置哪些文件不需要 source map
     new webpack.SourceMapDevToolPlugin({
-      filename: '[name].js.map',
+      filename: '[name].[chunkhash].js.map',
       exclude: [/^vendor\..+\.js$/]
     }),
   ],

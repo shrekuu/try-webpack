@@ -10,7 +10,7 @@
     "build": "webpack --config webpack.prod.js"
   },
   "author": "shrekuu <shrekuu@gmail.com> (http://github.com/shrekuu)",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
