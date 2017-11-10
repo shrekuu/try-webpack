@@ -5,10 +5,6 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(common, {
-
-  // source map, 在插件里有配置, 这里不必写
-  // devtool: 'source-map',
-
   plugins: [
 
     // 混淆压缩
@@ -28,7 +24,6 @@ module.exports = merge(common, {
       exclude: [/(^vendor|^polyfills|^runtime)\..+\.js$/],
     }),
   ],
-
   output: {
 
     // 输出文件名带 hash 的文件

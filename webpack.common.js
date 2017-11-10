@@ -5,7 +5,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
+
+    // polyfill
     polyfills: './src/polyfills.js',
+
+    // app
     app: './src/index.js',
 
     // 第三方依赖列表
@@ -19,7 +23,9 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
 
     // 编译 html
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
 
     new webpack.ProvidePlugin({
       lodash: 'lodash',
@@ -35,7 +41,6 @@ module.exports = {
       name: 'runtime',
     }),
   ],
-
   output: {
 
     // 输出文件

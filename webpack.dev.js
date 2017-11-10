@@ -9,7 +9,6 @@ module.exports = merge(common, {
     contentBase: './dist',
     hot: true,
   },
-
   plugins: [
 
     // 显示模块的相对路径
