@@ -1,20 +1,10 @@
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
-const webpack = require('webpack');
+const merge = require('webpack-merge')
+const common = require('./webpack.common')
 
 module.exports = merge(common, {
-
-  // webpack dev server live reloading
+  mode: 'development',
+  devtool: 'cheap-module-source-map',
   devServer: {
-    contentBase: './dist',
-    hot: true,
-  },
-  plugins: [
-
-    // 显示模块的相对路径
-    new webpack.NamedModulesPlugin(),
-
-    // 模块热更新
-    new webpack.HotModuleReplacementPlugin(),
-  ]
-});
+    contentBase: './dist'
+  }
+})
